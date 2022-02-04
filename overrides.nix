@@ -42,6 +42,8 @@ in with pkgs.haskell.lib; {
   memory = whenGhcjs dontCheck super.memory;
   prettyprinter-ansi-terminal = whenGhcjs dontCheck super.prettyprinter-ansi-terminal;
   prettyprinter-convert-ansi-wl-pprint = whenGhcjs dontCheck super.prettyprinter-convert-ansi-wl-pprint;
+  servant-server = dontCheck super.servant-server;
+  system-locale = markUnbroken super.system-locale;
   tdigest = whenGhcjs dontCheck super.tdigest;
   temporary = whenGhcjs dontCheck super.temporary;
   text-short = whenGhcjs dontCheck super.text-short; # either hang or take a long time
@@ -59,22 +61,12 @@ in with pkgs.haskell.lib; {
     sha256 = "11b8g4nm421pr09yfb4zp18yb7sq4wah598fi3p5fb64yy4c2n4s";
   });
 
-  hedgehog = dontCheck (callHackageDirect {
-    pkg = "hedgehog";
-    ver = "1.0.1";
-    sha256 = "0h9qwd4gw5n8j8is9kn9mll32c8v6z1dv9mp4fmkmz7k5zi4asjq";
-  });
+  hedgehog = dontCheck super.hedgehog;
 
   hspec-megaparsec = dontCheck (callHackageDirect {
     pkg = "hspec-megaparsec";
     ver = "2.2.0";
     sha256 = "0fclj5snkg4r18zjpbgp4ai1lzxkvnrjh0194pi9l4s9g277ranc";
-  });
-
-  http-api-data = dontCheck (callHackageDirect {
-    pkg = "http-api-data";
-    ver = "0.4.1";
-    sha256 = "0wqji0raiq3snh7yifmv754sg5zjvw2gisgz1d3d0ljib2sw4jiq";
   });
 
   http-media = dontCheck (callHackageDirect {
@@ -153,28 +145,10 @@ in with pkgs.haskell.lib; {
         sha256 = "1kjn5wgwgxdw2xk32d645v3ss2a70v3bzrihjdr2wbj2l4ydcah1";
       });
 
-  servant = dontCheck (callHackageDirect {
-    pkg = "servant";
-    ver = "0.16.2";
-    sha256 = "1a83fdcwnlkmyc6fqsrfd26izcgk1jgpdgyqma3l897cnnr62frs";
-  });
-
   servant-client = dontCheck (callHackageDirect {
     pkg = "servant-client";
     ver = "0.16.0.1";
     sha256 = "1236sldcgvk2zj20cxib9yxrdxz7d1a83jfdnn9mxa272srfq9a9";
-  });
-
-  servant-client-core = dontCheck (callHackageDirect {
-    pkg = "servant-client-core";
-    ver = "0.16";
-    sha256 = "0panxplcjslsvqxvsabn2fy0fhcqmmr0dqj51hk7bk7yyvgwxklf";
-  });
-
-  servant-server = dontCheck (callHackageDirect {
-    pkg = "servant-server";
-    ver = "0.16.2";
-    sha256 = "1klcszpfqy1vn3q1wbqxjghfyddw8wbg4f0ggllqw8qx2f5zp5y1";
   });
 
   servant-swagger = dontCheck (callHackageDirect {
@@ -189,11 +163,7 @@ in with pkgs.haskell.lib; {
     sha256 = "1kgajvqbx8627191akn6pz4kiyi24gawvnvkyb7955dy7bnpd9pn";
   });
 
-  tasty-hedgehog = dontCheck (callHackageDirect {
-    pkg = "tasty-hedgehog";
-    ver = "1.0.0.1";
-    sha256 = "06mffkvscl8r81hjhsvjlyqa843szgv8fays1l9z4jaw2759glsr";
-  });
+  tasty-hedgehog = dontCheck super.tasty-hedgehog;
 
   # Our own custom fork
   thyme = dontCheck (self.callCabal2nix "thyme" (pkgs.fetchFromGitHub {
@@ -213,12 +183,6 @@ in with pkgs.haskell.lib; {
     pkg = "trifecta";
     ver = "2.1";
     sha256 = "0hbv8q12rgg4ni679fbx7ac3blzqxj06dw1fyr6ipc8kjpypb049";
-  });
-
-  unordered-containers = dontCheck (callHackageDirect {
-    pkg = "unordered-containers";
-    ver = "0.2.10.0";
-    sha256 = "16xpq9qb1ipl0mb86rlb3bx29xvgcwirpm2ds0ynxjh0ylwzavkk";
   });
 
   hspec-golden = dontCheck (callHackageDirect {
@@ -315,12 +279,6 @@ in with pkgs.haskell.lib; {
     sha256 = "16rbagd4ypbs4scmni4na08f3ycsj4g4w4mlizczpxlc1hfbwy5k";
   };
 
-  these = doJailbreak (callHackageDirect {
-    pkg = "these";
-    ver = "1.0.1";
-    sha256 = "1b2cdc9d9slxjw5cr4pmplfln5kawj2w74zi92hsmwkffqiycjhz";
-  });
-
   these-skinny = doJailbreak (callHackageDirect {
     pkg = "these-skinny";
     ver = "0.7.4";
@@ -355,12 +313,6 @@ in with pkgs.haskell.lib; {
     pkg = "wai-middleware-throttle";
     ver = "0.3.0.1";
     sha256 = "13pz31pl7bk51brc88jp0gffjx80w35kzzrv248w27d7dc8xc63x";
-  });
-
-  wai-extra = whenGhcjs dontCheck (callHackageDirect {
-    pkg = "wai-extra";
-    ver = "3.0.28";
-    sha256 = "1k470vbn2c852syj15m9xzfjnaraw6cyn35ajf2b67i01ghkshgw";
   });
 
   wai-app-static = doJailbreak (whenGhcjs dontCheck (callHackageDirect {
