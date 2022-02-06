@@ -120,12 +120,6 @@ in with pkgs.haskell.lib; {
     sha256 = "0sbl7xczk7qn658j4zcp7wg0x9gxy07wqxv7xnjhzrjx066qjix1";
   });
 
-  semialign = callHackageDirect {
-    pkg = "semialign";
-    ver = "1";
-    sha256 = "0cwl7s62sbh3g1ys1lbsp76hz27admylk3prg5gjrqnx4ic9cap6";
-  };
-
   # https://github.com/reflex-frp/reflex-platform/issues/549
   singleton-bool =
     if self.ghc.isGhcjs or false
