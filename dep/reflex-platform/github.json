@@ -1,8 +1,8 @@
 {
   "owner": "reflex-frp",
   "repo": "reflex-platform",
-  "branch": "master",
+  "branch": "cn/ignore-more-libuv-tests-in-nixpkgs",
   "private": false,
-  "rev": "efc6d923c633207d18bd4d8cae3e20110a377864",
-  "sha256": "121rmnkx8nwiy96ipfyyv6vrgysv0zpr2br46y70zf4d0y1h1lz5"
+  "rev": "637c6b17b12a62a9d0729deb1cbab3ea6eea11d2",
+  "sha256": "070xkk0c8pqcvcqsncps7s798si783pqxjcnwnh4fx6aaizdr5ws"
 }
